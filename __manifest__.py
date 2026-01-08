@@ -8,7 +8,9 @@
     'summary': 'Impresión de etiquetas Zebra desde recepciones',
     'depends': ['stock'],
     'data': [
-        'views/stock_picking_views.xml',
+        #'views/stock_picking_views.xml',
+        'report/report_action.xml',
+        'report/report_template.xml',
     ],
     'installable': True,
 }

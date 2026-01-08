@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_zebra_zpl" model="ir.actions.report">
+        <field name="name">Etiqueta Zebra ZPL (10x10)</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-text</field> <field name="report_name">exe_zebra_label_picking.report_zebra_zpl_template</field>
+        <field name="report_file">exe_zebra_label_picking.report_zebra_zpl_template</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

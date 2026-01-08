@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_zebra_zpl_template">
+        <t t-foreach="docs" t-as="o">
+            ^XA
+            ^PW800
+            ^LL800
+            ^CI28  ^FO20,20^GB760,760,4,B,4^FS
+
+            ^FO50,60
+            ^A0N,50,50^FD FECHA: ^FS
+            ^FO250,60
+            ^A0N,50,50^FD<t t-esc="o.scheduled_date.strftime('%d-%m-%Y') if o.scheduled_date else ''"/>^FS
+
+            ^FO50,130
+            ^A0N,30,30^FDDESTINATARIO: ^FS
+            ^FO280,130
+            ^A0N,30,30^FD<t t-esc="o.partner_id.name"/> DNI <t t-esc="o.partner_id.vat or ''"/>^FS
+
+            ^FO50,200
+            ^A0N,30,30^FDDIRECCION: ^FS
+            ^FO250,200
+            ^FB500,2,0,L,0 ^A0N,30,30^FD<t t-esc="o.partner_id.street"/>, <t t-esc="o.partner_id.city"/> - <t t-esc="o.partner_id.state_id.name"/>^FS
+
+            ^FO50,320
+            ^A0N,25,25^FDREMITENTE: <t t-esc="o.company_id.name"/> - TEL <t t-esc="o.company_id.phone"/>^FS
+            
+            ^FO50,360
+            ^A0N,25,25^FDDIRECCION: <t t-esc="o.company_id.street"/> - <t t-esc="o.company_id.city"/>^FS
+
+            ^FO100,480
+            ^A0N,55,55^FDPROYECTO: ^FS
+            ^FO420,480
+            ^A0N,55,55^FD<t t-esc="o.origin"/>^FS
+
+            ^FO250,650
+            ^A0N,60,60^FDBULTOS: 1 / 1^FS
+
+            ^XZ
+        </t>
+    </template>
+</odoo>
